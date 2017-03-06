@@ -80,6 +80,8 @@ public class Ansj {
 
 		String str = "洁面仪配合洁面深层清洁毛孔 清洁鼻孔面膜碎觉使劲挤才能出一点点皱纹 脸颊毛孔修复的看不见啦 草莓鼻历史遗留问题没辙 脸和脖子差不多颜色的皮肤才是健康的 长期使用安全健康的比同龄人显小五到十岁 28岁的妹子看看你们的鱼尾纹";
 
+		//词性标注规范参见：https://github.com/NLPchina/ansj_seg/wiki/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8%E8%A7%84%E8%8C%83
+
 		System.out.println(BaseAnalysis.parse(str));
 		System.out.println(ToAnalysis.parse(str));
 		System.out.println(DicAnalysis.parse(str));

@@ -1,0 +1,5 @@
+# download Ansj library from [library](https://github.com/NLPchina/ansj_seg/tree/master/library) and put it here
+/ambiguity.dic
+/default.dic
+/stop.dic
+/synonyms.dic
