@@ -68,7 +68,39 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.ansj</groupId>
+            <artifactId>ansj_seg</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.paoding.analysis</groupId>
+            <artifactId>paoding-analysis</artifactId>
+            <version>2.0.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/libs/paoding-analysis-2.0.4.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>4.10.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-queryparser</artifactId>
+            <version>4.10.4</version>
+        </dependency>
+
     </dependencies>
+
+
+    <!--<repositories>-->
+    <!--<repository>-->
+    <!--<id>mvn-repo</id>-->
+    <!--<url>http://maven.ansj.org/</url>-->
+    <!--</repository>-->
+    <!--</repositories>-->
 
     <build>
         <pluginManagement>
