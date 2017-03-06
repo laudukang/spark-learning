@@ -1,0 +1,5 @@
+#Download language model file from [Release](https://github.com/xpqiu/fnlp/releases),and put it here
+/dep.m
+/pos.m
+/seg.m
+*.bak
