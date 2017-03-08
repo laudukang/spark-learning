@@ -13,6 +13,7 @@ import java.util.Date;
  * <p>Version: 1.0
  */
 public class Blog implements Serializable {
+	private static final long serialVersionUID = 7218684695085127481L;
 	private String title;
 	private String author;
 	private String content;
