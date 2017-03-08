@@ -1,4 +1,4 @@
-package me.codz;
+package me.codz.redis;
 
 import me.codz.beans.Blog;
 import org.apache.commons.lang3.SerializationUtils;
