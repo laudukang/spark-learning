@@ -59,7 +59,7 @@ public class Paoding {
 		JavaSparkContext sc = new JavaSparkContext("local[2]", "First Spark App");
 
 		int NUMBER_OF_PARTITION = 1;
-		JavaRDD<String> textFile = sc.textFile(classLoader.getResource("Article.txt").getPath(), NUMBER_OF_PARTITION);
+		JavaRDD<String> textFile = sc.textFile(classLoader.getResource("test/Article.txt").getPath(), NUMBER_OF_PARTITION);
 
 		JavaPairRDD<String, Integer> counts = textFile.map(x -> {
 			List<String> list = anaylyzerWords(x);

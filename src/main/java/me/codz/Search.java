@@ -30,7 +30,7 @@ public class Search {
 		JavaSparkContext sc = new JavaSparkContext(sparkConf);
 		SQLContext sqlContext = new SQLContext(sc);
 
-		JavaRDD<String> textFile = sc.textFile(classLoader.getResource("Search.txt").getPath());
+		JavaRDD<String> textFile = sc.textFile(classLoader.getResource("test/Search.txt").getPath());
 
 		JavaRDD<Row> rowRDD = textFile.map(RowFactory::create);
 		List<StructField> fields = Arrays.asList(

@@ -21,7 +21,7 @@ public class WordCount {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
 		JavaSparkContext sc = new JavaSparkContext("local[2]", "First Spark App");
-		JavaRDD<String> textFile = sc.textFile(classLoader.getResource("UserPurchaseHistory.csv").getPath());
+		JavaRDD<String> textFile = sc.textFile(classLoader.getResource("test/UserPurchaseHistory.csv").getPath());
 
 		JavaPairRDD<String, Integer> counts = textFile
 				.flatMap(s -> Arrays.asList(s.split("[, ]")).iterator())
