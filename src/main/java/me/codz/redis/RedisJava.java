@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import me.codz.beans.Blog;
 import org.apache.commons.lang3.SerializationUtils;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.ShardedJedis;
 
 import java.util.Date;
 import java.util.List;
@@ -18,19 +19,31 @@ import java.util.Set;
  */
 public class RedisJava {
 	private static Jedis jedis;
+	private static ShardedJedis shardedJedis;
 
 	static {
 		//jedis.auth("tmp");
-		jedis = new Jedis("192.168.1.10", 6379);
+		//jedis = new Jedis("192.168.1.10", 6379);
+
+		jedis = RedisPool.getJedis();
 		System.out.println("Server is running: " + jedis.ping());
+
+		//shardedJedis = RedisShardedPool.getJedis();
 	}
 
+
 	public static void main(String[] args) {
-		//stringTest();
+		stringTest();
 		//listTest();
 		//keysTest();
 		//beanTest();
-		beanListTest();
+		//beanListTest();
+		//stringTestWithShard();
+	}
+
+	public static void stringTestWithShard() {
+		shardedJedis.set("hi", "lau, shard");
+		System.out.println(shardedJedis.get("hi"));
 	}
 
 	private static void stringTest() {
