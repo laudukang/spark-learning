@@ -1,6 +1,5 @@
 package me.codz.nlp;
 
-import me.codz.SparkWordCountTests;
 import net.paoding.analysis.analyzer.PaodingAnalyzer;
 import org.apache.commons.lang.StringUtils;
 import org.apache.lucene.analysis.Analyzer;
@@ -46,7 +45,7 @@ import java.util.List;
  */
 public class PaodingTests {
     private static final Analyzer ANALYZER = new PaodingAnalyzer();
-    private static ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    private static ClassLoader CLASSLOADER = Thread.currentThread().getContextClassLoader();
 
     @SuppressWarnings("unchecked")
     @Test
@@ -54,7 +53,7 @@ public class PaodingTests {
         JavaSparkContext sc = new JavaSparkContext("local[2]", "First Spark App");
 
         int NUMBER_OF_PARTITION = 1;
-        JavaRDD<String> textFile = sc.textFile(classLoader.getResource("nlp-source/Article.txt").getPath(), NUMBER_OF_PARTITION);
+        JavaRDD<String> textFile = sc.textFile(CLASSLOADER.getResource("nlp-source/Article.txt").getPath(), NUMBER_OF_PARTITION);
 
         JavaPairRDD<String, Integer> counts = textFile.map(x -> {
             List<String> list = wordAnalyzer(x);
@@ -66,7 +65,7 @@ public class PaodingTests {
                 .mapToPair((PairFunction<String, String, Integer>) s -> new Tuple2(StringUtils.trim(s), 1))
                 .reduceByKey((Function2<Integer, Integer, Integer>) (x, y) -> x + y);
 
-        URL url = SparkWordCountTests.class.getClassLoader().getResource("");
+        URL url = CLASSLOADER.getResource("");
         String savePath = new File(url.getFile()).getAbsolutePath() + File.separator + "test-result" + File.separator + "paoding";
         File file = new File(savePath);
         if (file.exists()) {

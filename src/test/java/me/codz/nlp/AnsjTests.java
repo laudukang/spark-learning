@@ -1,7 +1,6 @@
 package me.codz.nlp;
 
 import com.google.common.collect.Lists;
-import me.codz.SparkWordCountTests;
 import org.ansj.domain.Result;
 import org.ansj.recognition.impl.StopRecognition;
 import org.ansj.splitWord.analysis.*;
@@ -57,7 +56,7 @@ public class AnsjTests {
                 .mapToPair((PairFunction<String, String, Integer>) s -> new Tuple2(StringUtils.trim(s), 1))
                 .reduceByKey((Function2<Integer, Integer, Integer>) (x, y) -> x + y);
 
-        URL url = SparkWordCountTests.class.getClassLoader().getResource("");
+        URL url = AnsjTests.class.getClassLoader().getResource("");
         String savePath = new File(url.getFile()).getAbsolutePath() + File.separator + "test-result" + File.separator + "ansj";
         File file = new File(savePath);
         if (file.exists()) {
